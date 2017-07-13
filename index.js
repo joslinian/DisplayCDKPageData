@@ -9,10 +9,18 @@ class GetPageData {
                 let hydraLinkNode = parsedData.find(node => {
                     return node.childNodes[0] && node.childNodes[0].href;
                 });
-                let dataString = hydraLinkNode.childNodes[0].href;
-                console.log(dataString);
+                let hydraLinkHref = hydraLinkNode.childNodes[0].href;
+                console.log(this.parseHydraLinkHref(hydraLinkHref));
             }
         });
+    }
+
+    getActiveTabURI() {
+
+    }
+
+    parseHydraLinkHref(hydraLinkHref) {
+
     }
 };
 
