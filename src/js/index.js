@@ -5,11 +5,13 @@
 
 class GetHydraLink {
     constructor() {
-        this.ajaxGet(
-            "http://www.lexusofsacramento.com/LexusOffers_D?debug",
-            data => this.getLink(data),
-            error => {throw new Error(`AJAX GET failed because response was ${error}`)}
-        );
+        chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, tabs => {
+            this.ajaxGet(
+                `${tabs[0].url}?debug`,
+                data => this.getLink(data),
+                error => {throw new Error(`AJAX GET failed because response was ${error}`)}
+            );
+        });
     }
 
     ajaxGet(url, success, error) {
@@ -18,6 +20,7 @@ class GetHydraLink {
         request.onreadystatechange = () => {
             if(request.readyState === 4) {
                 if(request.status !== 200) {
+                    console.log(request.status)
                     if(error && typeof error === "function") {
                         error(request.responseText);
                     }
