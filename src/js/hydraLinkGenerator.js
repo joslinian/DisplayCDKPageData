@@ -5,14 +5,14 @@
 
 class HydraLinkGenerator {
     generate(url) {
-        return this.ajaxGet(url).then(DOMString => {
+        return this.sendRequest(url).then(DOMString => {
             return this.getHref(DOMString);
         }).catch(error => {
             console.log(error); throw new Error(error);
         });
     }
 
-    ajaxGet(url) {
+    sendRequest(url) {
         return new Promise((resolve, reject) => {
             if (!window.XMLHttpRequest) {
                 throw new Error(`This browser does not support XMLHttpRequest`);
