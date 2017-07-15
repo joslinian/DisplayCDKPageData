@@ -3,22 +3,13 @@
 
 "use strict";
 
-import {hydraLinkGenerator} from "./getHydraLink";
+import {hydraLinkGenerator} from "./hydraLinkGenerator";
+import {hydraLinkProcessor} from "./hydraLinkProcessor";
 
 (() => {
-    let App = this;
+    hydraLinkGenerator.getUrl()
+    .then(url => hydraLinkGenerator.generate(url)
+    .then(hydraLink => hydraLinkProcessor.process(hydraLink))
+    .catch(error => console.log(error)));
+})();
 
-        App.init = function() {
-
-        };
-
-
-}).init();
-
-hydraLinkGenerator.getUrl().then(url => {
-    return hydraLinkGenerator.process(url);
-}).then(hydraLink => {
-    console.log(hydraLink);
-}).catch(error => {
-    console.log(error);
-});

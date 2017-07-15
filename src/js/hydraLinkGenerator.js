@@ -4,11 +4,11 @@
 "use strict";
 
 class HydraLinkGenerator {
-    process(url) {
+    generate(url) {
         return this.ajaxGet(url).then(DOMString => {
             return this.getHref(DOMString);
         }).catch(error => {
-            console.log(error); //throw new Error(error);
+            console.log(error); throw new Error(error);
         });
     }
 
