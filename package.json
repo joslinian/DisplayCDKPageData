@@ -2,22 +2,22 @@
   "name": "display-cdk-page-data",
   "version": "1.0.0",
   "description": "Give a hydra-link, localhost dev link, and display the page data in a readable way in a popup at the click of a chrome navbar button",
-  "main": "index.js",
-  "dependencies": {
-    "jquery": "*"
+  "browserify": {
+    "transform": [["babelify", { "presets": ["es2015"] }]]
   },
   "devDependencies": {
     "jshint": "latest",
     "uglify-js": "latest",
     "babel-cli": "latest",
     "babel-preset-es2015": "latest",
+    "babelify": "latest",
     "browserify": "latest",
     "watch": "latest"
   },
   "scripts": {
     "installClean": "rm -rf node_modules && npm install",
-    "lint": "jshint src/scripts/index.js || true",
-    "build": "mkdir -p app/js/ && browserify src/js/*.js | babel --presets=es2015 | uglifyjs -m -o app/js/app.min.js",
+    "lint": "jshint src/scripts/app.js.js || true",
+    "build": "mkdir -p app/js/ && browserify src/js/app.js -t [babelify --presets [es2015]] | uglifyjs -m -o app/js/app.min.js",
     "watch": "watch 'npm run build' src/"
   },
   "repository": {
