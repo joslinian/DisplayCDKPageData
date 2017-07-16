@@ -17,18 +17,18 @@ class HydraLinkGenerator {
             if (!window.XMLHttpRequest) {
                 throw new Error(`This browser does not support XMLHttpRequest`);
             }
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", url);
-            xhr.onload = () => resolve(xhr.responseText);
-            xhr.onerror = () => reject(`AJAX call failed with error ${xhr.status}: ${xhr.statusText}`);
-            xhr.send();
+            const XHR = new XMLHttpRequest();
+            XHR.open("GET", url);
+            XHR.onload = () => resolve(XHR.responseText);
+            XHR.onerror = () => reject(`AJAX call failed with error ${XHR.status}: ${XHR.statusText}`);
+            XHR.send();
         })
     }
 
     getUrl() {
         return new Promise((resolve, reject) => {
             return chrome.tabs.query({"active": true, "lastFocusedWindow": true}, tabs => {
-                return tabs[0].url ? resolve(`${tabs[0].url}?debug`) : reject(`No "a" tag detected on this page`);
+                return tabs[0].url ? resolve(`${tabs[0].url}?debug`) : reject(`chrome api did not find a tab`);
             });
         });
     }
