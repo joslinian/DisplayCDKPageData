@@ -10,7 +10,7 @@ class HydraLinkProcessor {
         return {
             hydraLink: hydraLink,
             localLink: this.localLink(hydraLink),
-            data: this.parseHydraLink(hydraLink)
+            pageData: this.parseHydraLink(hydraLink)
         }
     }
 
@@ -46,7 +46,7 @@ class HydraLinkProcessor {
 
 
     catchMalformedJSONParse(JSONData) {
-        try {JSON.parse(JSONData)} catch(e) {return JSONData}
+        try {JSON.parse(JSONData)} catch(e) {return `This data has an invalid format: ${JSONData}`}
         return JSON.parse(JSONData)
     }
 
