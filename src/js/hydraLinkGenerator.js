@@ -28,7 +28,15 @@ class HydraLinkGenerator {
     getUrl() {
         return new Promise((resolve, reject) => {
             return chrome.tabs.query({"active": true, "lastFocusedWindow": true}, tabs => {
-                return tabs[0].url ? resolve(`${tabs[0].url}?debug`) : reject(`chrome api did not find a tab`);
+                if(tabs[0].url && tabs[0].url.indexOf("?") > -1) {
+                    return resolve(`${tabs[0].url}&debug`);
+                }
+                else if(tabs[0].url) {
+                    return resolve(`${tabs[0].url}?debug`);
+                }
+                else {
+                    return reject(`chrome api did not find a tab`);
+                }
             });
         });
     }

@@ -25,28 +25,35 @@ class HydraLinkProcessor {
         let payload = decodedData.substr(decodedData.indexOf("?search=")).replace("debug=&pageName=", "");
         let sanitizedPayload = this.sanitizePayload(payload);
         let depthlessObject = queryString.parse(sanitizedPayload);
-
         let parsedObject = {};
 
         for(let key of Object.keys(depthlessObject)) {
             parsedObject[key] = this.catchMalformedJSONParse(depthlessObject[key]);
         }
-
         return parsedObject;
     }
 
     sanitizePayload(payload) {
         //This handles an edge-case where the delimiters "=" or "&" are part of some string which is not a query parameter.
-        const blacklist = ["debug=&pageName="];
+        const blacklist = ["debug=","&pageName="];
         for(let string of blacklist) {
-            payload = payload.replace(string, "");
+            payload = payload.replace(string, string.replace("=","\="));
         }
         return payload;
     }
 
 
     catchMalformedJSONParse(JSONData) {
-        try {JSON.parse(JSONData)} catch(e) {return `This data has an invalid format: ${JSONData}`}
+        const JSON_DATA_TYPE = typeof JSONData;
+
+        if(JSON_DATA_TYPE === "object") {
+            return JSONData
+        }
+        if(JSON_DATA_TYPE !== "object" && JSON_DATA_TYPE !== "string") {
+            return `This data has the invalid type: ${JSON_DATA_TYPE}`;
+        }
+
+        try {JSON.parse(JSONData)} catch(e) {return JSONData}
         return JSON.parse(JSONData)
     }
 

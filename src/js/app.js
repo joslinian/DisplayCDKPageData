@@ -14,5 +14,3 @@ import {renderView} from "./renderView";
     .then(processedData => renderView.render(processedData))
     .catch(error => console.log(error));
 })();
-
-//in package.json add this back just before "-m -o app/js/app.min.js": "[babelify --presets [es2015]] | uglifyjs"

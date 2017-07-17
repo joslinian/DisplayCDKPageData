@@ -5,7 +5,6 @@
 
 class RenderView {
     render(data) {
-        console.log(data);
         const MOUNT_POINT = document.getElementById("mountPoint");
         MOUNT_POINT.innerHTML = this.template(data);
     }
@@ -18,8 +17,11 @@ class RenderView {
                     <a href="${data.hydraLink}" target="_blank">Direct Hydra Link</a>
                     <a href="${data.localLink}" target="_blank">Local Context Link</a>
                 </div>
-                <heading>Page Data:</heading>
-                <pre id="pageData">${PRETTY_PAGE_DATA}</pre>
+                <div id="pageData">
+                    <h3>Here is the data I was able to get from this page:</h3>
+                    <hr />
+                    <pre>PageData: ${PRETTY_PAGE_DATA}</pre>
+                </div>
             </div>
         `
     }
