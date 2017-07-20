@@ -22,7 +22,7 @@ class HydraLinkGenerator {
             XHR.onload = () => resolve(XHR.responseText);
             XHR.onerror = () => reject(`AJAX call failed with error ${XHR.status}: ${XHR.statusText}`);
             XHR.send();
-        })
+        });
     }
 
     getUrl() {

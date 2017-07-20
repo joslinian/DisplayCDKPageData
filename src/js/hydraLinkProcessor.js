@@ -10,14 +10,19 @@ class HydraLinkProcessor {
         return {
             hydraLink: hydraLink,
             localLink: this.localLink(hydraLink),
+            layerLink: this.layerLink(hydraLink),
             pageData: this.parseHydraLink(hydraLink)
-        }
+        };
     }
 
     localLink(hydraLink) {
         let routeIdx = hydraLink.indexOf("/route/");
         let route = hydraLink.substring(routeIdx);
         return `localhost:8082${route}`;
+    }
+
+    layerLink(hydraLink) {
+
     }
 
     parseHydraLink(hydraLink) {
@@ -47,14 +52,14 @@ class HydraLinkProcessor {
         const JSON_DATA_TYPE = typeof JSONData;
 
         if(JSON_DATA_TYPE === "object") {
-            return JSONData
+            return JSONData;
         }
         if(JSON_DATA_TYPE !== "object" && JSON_DATA_TYPE !== "string") {
             return `This data has the invalid type: ${JSON_DATA_TYPE}`;
         }
 
-        try {JSON.parse(JSONData)} catch(e) {return JSONData}
-        return JSON.parse(JSONData)
+        try {JSON.parse(JSONData);} catch(e) {return JSONData;}
+        return JSON.parse(JSONData);
     }
 
 }

@@ -23,7 +23,7 @@ class RenderView {
                     <pre>PageData: ${PRETTY_PAGE_DATA}</pre>
                 </div>
             </div>
-        `
+        `;
     }
 }
 
