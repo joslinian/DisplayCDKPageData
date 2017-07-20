@@ -15,6 +15,7 @@ class RenderView {
             <div id="renderedData">
                 <div id="hydraLinks">
                     <a href="${data.hydraLink}" target="_blank">Direct Hydra Link</a>
+                    <a href="${data.layerLink}" target="_blank">Data Layer Link</a>
                     <a href="${data.localLink}" target="_blank">Local Context Link</a>
                 </div>
                 <div id="pageData">

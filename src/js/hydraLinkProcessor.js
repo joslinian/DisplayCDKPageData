@@ -22,7 +22,7 @@ class HydraLinkProcessor {
     }
 
     layerLink(hydraLink) {
-
+        return hydraLink.replace("base-view/consumer", "base-layer/page");
     }
 
     parseHydraLink(hydraLink) {
@@ -60,6 +60,10 @@ class HydraLinkProcessor {
 
         try {JSON.parse(JSONData);} catch(e) {return JSONData;}
         return JSON.parse(JSONData);
+    }
+
+    isObjectEmpty(obj) {
+        return Object.keys(obj).length === 0 && obj.constructor === Object;
     }
 
 }
