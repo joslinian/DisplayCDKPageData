@@ -27,7 +27,7 @@ class HydraLinkProcessor {
 
     parseHydraLink(hydraLink) {
         let decodedData = decodeURIComponent(hydraLink);
-        let payload = decodedData.substr(decodedData.indexOf("?search=")).replace("debug=&pageName=", "");
+        let payload = decodedData.substr(decodedData.indexOf(this.getSearchString(hydraLink)));
         let sanitizedPayload = this.sanitizePayload(payload);
         let depthlessObject = queryString.parse(sanitizedPayload);
         let parsedObject = {};
@@ -42,7 +42,7 @@ class HydraLinkProcessor {
         //This handles an edge-case where the delimiters "=" or "&" are part of some string which is not a query parameter.
         const blacklist = ["debug=","&pageName="];
         for(let string of blacklist) {
-            payload = payload.replace(string, string.replace("=","\="));
+            payload = payload.replace(string, "");
         }
         return payload;
     }
@@ -60,6 +60,10 @@ class HydraLinkProcessor {
 
         try {JSON.parse(JSONData);} catch(e) {return JSONData;}
         return JSON.parse(JSONData);
+    }
+
+    getSearchString(hydraLink) {
+        return hydraLink.indexOf("?search") > -1 ? "?search" : "&search";
     }
 
     isObjectEmpty(obj) {
