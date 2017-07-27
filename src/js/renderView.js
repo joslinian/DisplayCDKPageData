@@ -51,7 +51,7 @@ class RenderView {
                     <li>Are you in direct hydra context?</li>
                 </ol>
                 
-                <div>If this doesnt solve please consider reporting this error at: {{repo}}</div>
+                <div>If this doesnt solve please consider reporting this error at: https://github.com/adamglang/DisplayCDKPageData</div>
             </section>
         `;
     }

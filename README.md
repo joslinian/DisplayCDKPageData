@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Clone this repo to your chosen directory:
 ```
-git clone ---
+git clone http://langa@stash.cdk.com/scm/wh/displaycdkpagedata.git
 ```
 2. Open: chrome://extensions
 3. Choose: "Load unpacked extensions" (Button near the top left of the browser window)
