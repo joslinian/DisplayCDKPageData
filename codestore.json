@@ -1,0 +1,15 @@
+{
+  "key": "display-cdk-page-data",
+  "name": "DisplayCDKPageData",
+  "description": "Gives a link to CDK page in local server context, hydra context, HAR data and data layer. Shows debug parameters as easy to read json objects for given CDK hydra page in one click.",
+  "main": "README.md",
+  "tags": {
+    "owners": [
+      "adam.lang@cdk.com"
+    ],
+    "contributors": ["adam.lang@cdk.com"],
+    "cities": ["Seattle"],
+    "tech": ["ES6", "Browserify", "Babel", "LESS", "Chrome API", "NodeJS"],
+    "kudos": []
+  }
+}
