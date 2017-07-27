@@ -1,0 +1,35 @@
+{
+  "name": "display-cdk-page-data",
+  "version": "1.0.0",
+  "description": "Give a hydra-link, localhost dev link, and display the page data in a readable way in a popup at the click of a chrome navbar button",
+  "browserify": {
+    "transform": [["babelify", { "presets": ["es2015"] }]]
+  },
+  "devDependencies": {
+    "jshint": "latest",
+    "less": "latest",
+    "less-plugin-clean-css": "latest",
+    "uglify-js": "latest",
+    "babel-cli": "latest",
+    "babel-preset-es2015": "latest",
+    "babelify": "latest",
+    "browserify": "latest",
+    "watch": "latest"
+  },
+  "scripts": {
+    "installClean": "rm -rf node_modules && npm install",
+    "lint": "jshint src/scripts/app.js.js || true",
+    "build": "mkdir -p app/css && lessc src/less/styles.less app/css/styles.min.css --clean-css --strict-math=on&& mkdir -p app/js/ && browserify src/js/app.js [babelify --presets [es2015]] | uglifyjs -m -o app/js/app.min.js",
+    "watch": "watch 'npm run build' src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamglang/DisplayCDKPageData.git"
+  },
+  "author": "Adam Lang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamglang/DisplayCDKPageData/issues"
+  },
+  "homepage": "https://github.com/adamglang/DisplayCDKPageData#readme"
+}
