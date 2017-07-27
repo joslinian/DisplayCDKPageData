@@ -19,9 +19,9 @@ git clone http://langa@stash.cdk.com/scm/wh/displaycdkpagedata.git
 ### Be Aware:
 1. This extension is meant to make the internal development process at CDK easier. It will not work on non CDK websites, nor will it work outside CDK network, so you will need to be logged into VPN if you are WFH.
 
-## Development:
-### If you wish to extend / develop this extension please know the following:
-1. Deleopment should be done in "src/" directory. You can use ES6 and any isomorphic (not server runtime dependant) npm modules and / LESS for CSS preprocessing. The build system will compile all this to minified, browser-compliant ES5 using Babel, Browserify.
+### Development:
+#### If you wish to extend / develop this extension please know the following:
+1. Development should be done in "src/" directory. You can use ES6 and any isomorphic (not server runtime dependant) npm modules and / LESS for CSS preprocessing. The build system will compile all this to minified, browser-compliant ES5 using Babel, Browserify.
 
 2. You can check your code for any extension-breaking issues with:
 ```
