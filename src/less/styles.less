@@ -2,12 +2,12 @@
     #renderedData {
         #hydraLinks {
             display: flex;
+            flex-flow: row wrap;
             min-width: 500px;
             a {
                 color: #FFFFFF;
                 display: block;
-                width: 50%;
-                flex-direction: row;
+                flex-basis: calc(50% - 24px);
                 padding: 10px;
                 background: #000000;
                 text-align: center;
@@ -27,6 +27,13 @@
             pre {
                 font-size: 12px;
             }
+        }
+    }
+    #errorData {
+        min-width: 500px;
+        font-size: 14px;
+        #actualError {
+            color: #990000;
         }
     }
 }

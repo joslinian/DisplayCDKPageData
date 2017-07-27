@@ -12,5 +12,8 @@ import {renderView} from "./renderView";
     .then(url => hydraLinkGenerator.generate(url))
     .then(hydraLink => hydraLinkProcessor.process(hydraLink))
     .then(processedData => renderView.render(processedData))
-    .catch(error => console.log(error));
+    .catch(error => {
+        console.log(error);
+        renderView.error(error);
+    });
 })();

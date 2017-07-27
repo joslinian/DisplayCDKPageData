@@ -9,9 +9,10 @@ class HydraLinkProcessor {
     process(hydraLink) {
         return {
             hydraLink: hydraLink,
+            harLink: this.harLink(hydraLink),
             localLink: this.localLink(hydraLink),
             layerLink: this.layerLink(hydraLink),
-            pageData: this.parseHydraLink(hydraLink)
+            paramsData: this.parseHydraLink(hydraLink),
         };
     }
 
@@ -23,6 +24,10 @@ class HydraLinkProcessor {
 
     layerLink(hydraLink) {
         return hydraLink.replace("base-view/consumer", "base-layer/page");
+    }
+
+    harLink(hydraLink) {
+        return hydraLink.replace("base-view/consumer?", "base-view/consumer?har&");
     }
 
     parseHydraLink(hydraLink) {

@@ -19,7 +19,7 @@
   "scripts": {
     "installClean": "rm -rf node_modules && npm install",
     "lint": "jshint src/scripts/app.js.js || true",
-    "build": "mkdir -p app/css && lessc src/less/styles.less app/css/styles.min.css --clean-css && mkdir -p app/js/ && browserify src/js/app.js [babelify --presets [es2015]] | uglifyjs -m -o app/js/app.min.js",
+    "build": "mkdir -p app/css && lessc src/less/styles.less app/css/styles.min.css --clean-css --strict-math=on&& mkdir -p app/js/ && browserify src/js/app.js [babelify --presets [es2015]] | uglifyjs -m -o app/js/app.min.js",
     "watch": "watch 'npm run build' src/"
   },
   "repository": {
