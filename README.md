@@ -17,7 +17,7 @@ git clone ---
 5. You should now have a working extension.
 
 ### Be Aware:
-1. This extension is ment to make the internal development process at CDK easier. It will not work on non CDK websites, nor will it work outside CDK network, so you will need to be logged into VPN if you are WFH.
+1. This extension is meant to make the internal development process at CDK easier. It will not work on non CDK websites, nor will it work outside CDK network, so you will need to be logged into VPN if you are WFH.
 
 Please make any pull requests or bug reports at my personal repo where bugfix and PR testing will occur before pushing to CDK repo and store: https://github.com/adamglang/DisplayCDKPageData/
 
