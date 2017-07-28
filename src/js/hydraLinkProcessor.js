@@ -27,7 +27,7 @@ class HydraLinkProcessor {
     }
 
     harLink(hydraLink) {
-        return hydraLink.replace("base-view/consumer?", "base-view/consumer?har&");
+        return `http://www.softwareishard.com/har/viewer/preview.php?inputUrl=${encodeURIComponent(hydraLink)}%26har&expand=true`;
     }
 
     parseHydraLink(hydraLink) {
