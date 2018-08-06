@@ -1,8 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Display Page Data",
+  "description": "Gives a link to CDK page in local server context, hydra context, HAR data and data layer. Shows debug parameters as easy to read json objects for given CDK hydra page in one click.",
   "version": "0.1",
+  "icons": {
+    "48": "logos/CDK_Logo.png"
+  },
   "browser_action": {
+    "default_icon": {
+      "32": "logos/CDK_Logo.png"
+    },
+    "default_title": "CDK Display Page Data",
     "default_popup": "index.html"
   },
   "permissions": [

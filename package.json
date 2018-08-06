@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "Give a hydra-link, localhost dev link, and display the page data in a readable way in a popup at the click of a chrome navbar button",
   "browserify": {
-    "transform": [["babelify", { "presets": ["es2015"] }]]
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
   },
   "devDependencies": {
     "jshint": "latest",
